@@ -106,19 +106,19 @@ const ServiceSlider = ({ length }) => {
         className="wrapper flex flex-col text-center gap-5 items-center"
       >
         <div data-aos="fade-up" className="gradient-rounded-text-box mb-2">
-          Our Services
+          Our Portfolio
         </div>
         <h2 data-aos="fade-up" className="heading-2 max-w-[50rem]">
-          Empowering Your Digital Transformation
+          Showcasing Our Digital Excellence
         </h2>
         <p data-aos="fade-up" className="desc max-w-[50rem]">
-          At Silver Shot Technologies, we specialize in crafting innovative
-          digital solutions that drive growth and transformation for businesses
-          across industries. From web and mobile development to AI-powered
-          automation and cloud computing, we deliver tailored services that
-          align with your vision, enabling smarter decision-making, enhanced
-          efficiency, and sustainable growth.
+          Explore our diverse portfolio of cutting-edge projects that highlight
+          our expertise in web and mobile development, AI-driven solutions, and
+          digital innovation. At Silver Shot Technologies, we take pride in
+          delivering high-quality, scalable, and user-centric solutions that
+          help businesses thrive in the digital landscape.
         </p>
+
         <div
           data-aos="fade-up"
           ref={sliderRefone}

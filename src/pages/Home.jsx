@@ -184,7 +184,7 @@ const Home = () => {
       <JoinHappyCustomers />
       <TrustWorthySection />
       <OurValue />
-      <Portfolio />
+      {/* <Portfolio /> */}
       <WhyChooseUs />
       <Testimonials />
       <LeadForm />

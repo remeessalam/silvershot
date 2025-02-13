@@ -28,6 +28,8 @@ export { logoImg };
 
 export const companyDetails = {
   phone: "+91-9656610792",
+  whatapplink:
+    "https://api.whatsapp.com/send/?phone=9656610792&text&type=phone_number&app_absent=0",
   address: `Corporate Address
 BOX 63513 , Woodside Square , Ontario , Canada M1V5K2`,
   email: "abc@xyz.com",

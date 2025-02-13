@@ -1,6 +1,6 @@
 import Drawer from "react-modern-drawer";
 import { Divide as Hamburger } from "hamburger-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { logoImg } from "../../constant";
 import { X } from "lucide-react";
@@ -26,15 +26,32 @@ const options = [
 ];
 
 const LandingHeader = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
+  // Detect Scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Change on 50px scroll
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="py-4 fixed top-0 w-full bg-secondary/60 backdrop-blur-md z-50 text-white">
-      <div className="wrapper flex justify-between items-center gap-10">
+    <div
+      className={`fixed top-0 w-full z-50 transition-all group duration-300 hover:bg-white hover:text-black ${
+        isScrolled
+          ? "bg-white text-black shadow-md"
+          : "bg-transparent text-white"
+      }`}
+    >
+      {" "}
+      <div className="wrapper flex justify-between items-center gap-10 py-4">
         <div className="flex justify-between items-center gap-20 w-full pl-[1rem] lg:pl-0">
           <Helmet>
             {/* Preload the logo image */}
@@ -60,20 +77,26 @@ const LandingHeader = () => {
               .map((option) => (
                 <Link
                   to={`${option.path}`}
-                  className="link text-sm"
+                  className={`text-sm link group-hover:text-black ${
+                    isScrolled
+                      ? "text-primary font-medium"
+                      : "text-white font-medium"
+                  }`}
                   key={option.path}
                   spy={true}
                   smooth={true}
                   offset={-60}
                   duration={1000}
-                  activeClass="active-link"
+                  // activeClass=" text-white"
                 >
                   {option.name}
                 </Link>
               ))}
             <Link
               to="contact"
-              className="primary-btn"
+              className={`primary-btn group-hover:text-black transition-colors duration-300 group-hover:border-black ${
+                isScrolled && `!text-black !border-black`
+              }`}
               spy={true}
               smooth={true}
               offset={-60}
